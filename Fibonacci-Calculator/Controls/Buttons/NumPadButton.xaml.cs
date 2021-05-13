@@ -20,9 +20,21 @@ namespace Fibonacci_Calculator.Controls.Buttons
 	public sealed partial class NumPadButton : UserControl
 	{
 		public string Number { get; set; }
+
 		public NumPadButton()
 		{
 			this.InitializeComponent();
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			Page page = (Page)((Frame)Window.Current.Content).Content;
+			TextBlock numberBlock = (TextBlock)page.FindName("numberBlock");
+
+			if (numberBlock.Text.Length < 14)
+			{
+				numberBlock.Text += Number;
+			}
 		}
 	}
 }

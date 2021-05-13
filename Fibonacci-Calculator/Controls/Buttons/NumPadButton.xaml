@@ -11,8 +11,9 @@
 
     <Grid>
         <Button Content="{x:Bind Number}"
-            VerticalAlignment="Stretch"
-            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" 
+            HorizontalAlignment="Stretch" 
+            Click="Button_Click"
            />
     </Grid>
 </UserControl>
