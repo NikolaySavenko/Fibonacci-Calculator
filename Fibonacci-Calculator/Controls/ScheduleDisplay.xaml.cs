@@ -22,6 +22,11 @@ namespace Fibonacci_Calculator.Controls
 		public ScheduleDisplay()
 		{
 			this.InitializeComponent();
+			CalculatorManager.Manager.Schedule.OnScheduleUpdated += (List<string> schedule) =>
+			{
+				binDisplay.Text = String.Concat(schedule);
+				decDisplay.Text = String.Concat(schedule);
+			};
 		}
 	}
 }

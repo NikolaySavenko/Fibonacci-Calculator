@@ -123,6 +123,7 @@
     <Compile Include="Controls\ArithmeticActions.xaml.cs">
       <DependentUpon>ArithmeticActions.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ArithmeticSchedule.cs" />
     <Compile Include="Controls\Buttons\ArithmeticButton.xaml.cs">
       <DependentUpon>ArithmeticButton.xaml</DependentUpon>
     </Compile>

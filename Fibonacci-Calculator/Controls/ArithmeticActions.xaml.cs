@@ -23,7 +23,5 @@ namespace Fibonacci_Calculator.Controls
 		{
 			this.InitializeComponent();
 		}
-
-		
 	}
 }
