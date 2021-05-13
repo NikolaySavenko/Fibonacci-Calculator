@@ -141,6 +141,9 @@
     <Compile Include="Controls\NumberPad.xaml.cs">
       <DependentUpon>NumberPad.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ScheduleDisplay.xaml.cs">
+      <DependentUpon>ScheduleDisplay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -191,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\NumberPad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ScheduleDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

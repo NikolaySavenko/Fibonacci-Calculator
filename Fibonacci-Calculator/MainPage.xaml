@@ -12,16 +12,18 @@
 
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
+        <controls:ScheduleDisplay Grid.Row="0"/>
         <TextBlock
             x:Name="numberBlock"
-            Grid.Row="0"
-            Text="" 
+            Grid.Row="1"
+            Text=""
             HorizontalTextAlignment="Start" VerticalAlignment="Bottom"
             FontStretch="SemiCondensed" FontSize="48" HorizontalAlignment="Right"
             />
-        <controls:CalculatorControls Grid.Row="1"/>
+        <controls:CalculatorControls Grid.Row="2"/>
     </Grid>
 </Page>
