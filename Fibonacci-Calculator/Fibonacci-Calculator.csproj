@@ -123,6 +123,9 @@
     <Compile Include="Controls\ArithmeticActions.xaml.cs">
       <DependentUpon>ArithmeticActions.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Buttons\ArithmeticButton.xaml.cs">
+      <DependentUpon>ArithmeticButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Buttons\CalculatorButton.xaml.cs">
       <DependentUpon>CalculatorButton.xaml</DependentUpon>
     </Compile>
@@ -164,6 +167,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Controls\ArithmeticActions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Buttons\ArithmeticButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

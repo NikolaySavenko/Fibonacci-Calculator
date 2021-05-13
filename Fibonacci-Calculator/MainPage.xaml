@@ -22,7 +22,6 @@
             HorizontalTextAlignment="Start" VerticalAlignment="Bottom"
             FontStretch="SemiCondensed" FontSize="48" HorizontalAlignment="Right"
             />
-
         <controls:CalculatorControls Grid.Row="1"/>
     </Grid>
 </Page>

@@ -15,15 +15,20 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace Fibonacci_Calculator.Controls
+namespace Fibonacci_Calculator.Controls.Buttons
 {
-	public sealed partial class ArithmeticActions : UserControl
+	public sealed partial class ArithmeticButton : UserControl
 	{
-		public ArithmeticActions()
+		public string Action { get; set; }
+
+		public ArithmeticButton()
 		{
 			this.InitializeComponent();
 		}
 
-		
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }
