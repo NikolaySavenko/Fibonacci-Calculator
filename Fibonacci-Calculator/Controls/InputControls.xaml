@@ -1,0 +1,23 @@
+﻿<UserControl
+    x:Class="Fibonacci_Calculator.Controls.InputControls"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Fibonacci_Calculator.Controls"
+    xmlns:buttons="using:Fibonacci_Calculator.Controls.Buttons"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="100"
+    d:DesignWidth="400">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <buttons:CalculatorButton Grid.Column="0" Text="F"/>
+        <buttons:CalculatorButton Grid.Column="1" Text="CE"/>
+        <buttons:CalculatorButton Grid.Column="2" Text="C"/>
+    </Grid>
+</UserControl>
