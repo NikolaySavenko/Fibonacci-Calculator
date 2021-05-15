@@ -16,7 +16,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <buttons:CalculatorButton Grid.Column="0" Text="F"/>
+        <buttons:CalculatorButton Grid.Column="0" Text="F(n)"/>
         <buttons:CalculatorButton Grid.Column="1" Text="CE"/>
         <buttons:CalculatorButton Grid.Column="2" Text="C"/>
     </Grid>

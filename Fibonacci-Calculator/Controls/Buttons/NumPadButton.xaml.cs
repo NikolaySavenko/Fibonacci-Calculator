@@ -31,6 +31,12 @@ namespace Fibonacci_Calculator.Controls.Buttons
 			Page page = (Page)((Frame)Window.Current.Content).Content;
 			TextBlock numberBlock = (TextBlock)page.FindName("numberBlock");
 
+			if (CalculatorManager.Manager.ReadyToInput)
+			{
+				numberBlock.Text = "";
+				CalculatorManager.Manager.ReadyToInput = false;
+			}
+
 			if (numberBlock.Text.Length < 14)
 			{
 				numberBlock.Text += Number;

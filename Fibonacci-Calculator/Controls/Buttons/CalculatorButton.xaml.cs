@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using FibonacciNumbers;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -24,6 +25,29 @@ namespace Fibonacci_Calculator.Controls.Buttons
 		public CalculatorButton()
 		{
 			this.InitializeComponent();
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			var numberBlock = (TextBlock)CalculatorManager.Manager.FindName("numberBlock");
+			
+			switch (Text) {
+				case "F(n)":
+					var fNum = new FibonacciSeries(int.Parse(numberBlock.Text)).N;
+					numberBlock.Text = fNum.ToString();
+					break;
+				case "=":
+					var num = ulong.Parse(numberBlock.Text);
+					var fInt = new FiboInt(num);
+					numberBlock.Text = fInt.ToString();
+					break;
+				case "CE":
+					CalculatorManager.Manager.Schedule.Clear();
+					CalculatorManager.Manager.Schedule.Display();
+					numberBlock.Text = String.Empty;
+					break;
+			}
+			CalculatorManager.Manager.ReadyToInput = true;
 		}
 	}
 }

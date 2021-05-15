@@ -12,7 +12,7 @@
     <Grid>
         <Button Content="{x:Bind Text}"
             VerticalAlignment="Stretch"
-            HorizontalAlignment="Stretch"
+            HorizontalAlignment="Stretch" Click="Button_Click"
            />
     </Grid>
 </UserControl>

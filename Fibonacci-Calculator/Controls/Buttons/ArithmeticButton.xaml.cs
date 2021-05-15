@@ -34,7 +34,8 @@ namespace Fibonacci_Calculator.Controls.Buttons
 			{
 				CalculatorManager.Manager.Schedule.Add(numberBlock.Text);
 				CalculatorManager.Manager.Schedule.Add(Action);
-				numberBlock.Text = String.Empty;
+				CalculatorManager.Manager.Schedule.Display();
+				CalculatorManager.Manager.ReadyToInput = true;
 			}
 		}
 	}
