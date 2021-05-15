@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using FibonacciNumbers;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -22,10 +23,21 @@ namespace Fibonacci_Calculator.Controls
 		public ScheduleDisplay()
 		{
 			this.InitializeComponent();
-			CalculatorManager.Manager.Schedule.OnScheduleUpdated += (List<string> schedule) =>
+			CalculatorManager.Manager.Schedule.OnDisplayRequired += (List<string> schedule) =>
 			{
-				binDisplay.Text = String.Concat(schedule);
-				decDisplay.Text = String.Concat(schedule);
+				binDisplay.Text = String.Empty;
+				decDisplay.Text = String.Empty;
+				foreach (var element in schedule)
+				{
+					if (ulong.TryParse(element, out ulong number))
+					{
+						binDisplay.Text += new FiboInt(number).ToString();
+					}
+					else {
+						binDisplay.Text += element;
+					}
+					decDisplay.Text += element;
+				}
 			};
 		}
 	}
