@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FibonacciNumbers.FiboInt;
 
 namespace Fibonacci_Calculator
 {
@@ -25,6 +26,7 @@ namespace Fibonacci_Calculator
 
 		public void Add(string element) {
 			Elements.Add(element);
+			if (Elements.Count % 2 == 1 && Elements.Count > 2) InvokeOperator();
 			OnScheduleUpdated(Elements);
 		}
 
@@ -35,6 +37,33 @@ namespace Fibonacci_Calculator
 
 		public void Display() {
 			OnDisplayRequired(Elements);
+		}
+
+		private void InvokeOperator()
+		{
+			var operand0 = new FiboInt(ulong.Parse(Elements[0]));
+			var arithmeticOperator = Elements[1];
+			var operand1 = new FiboInt(ulong.Parse(Elements[2]));
+			FiboInt result = new FiboInt();
+			switch (arithmeticOperator)
+			{
+				case "+":
+					result = operand0 + operand1;
+					break;
+				case "-":
+					result = operand0 - operand1;
+					break;
+				case "/":
+					result = operand0 / operand1;
+					break;
+				case "*":
+					result = operand0 * operand1;
+					break;
+			}
+			Elements.RemoveAt(0);
+			Elements.RemoveAt(0);
+			Elements.RemoveAt(0);
+			Elements.Add(result.ToString());
 		}
 	}
 }

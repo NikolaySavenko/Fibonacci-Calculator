@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 
-namespace FibonacciNumbers
+namespace FibonacciNumbers.FiboInt
 {
-	public struct FiboInt
+	public partial struct FiboInt
 	{
 		private readonly UInt64 number;
 		public readonly FibonacciSeries series;
