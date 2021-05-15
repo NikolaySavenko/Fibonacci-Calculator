@@ -12,9 +12,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using FibonacciNumbers;
+using FibonacciNumbers.FiboInt;
+using FibonacciNumbers.Series;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
+
 
 namespace Fibonacci_Calculator.Controls.Buttons
 {

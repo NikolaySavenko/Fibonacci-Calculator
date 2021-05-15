@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FibonacciNumbers
+namespace FibonacciNumbers.Series
 {
 	public class FibonacciSeries
 	{

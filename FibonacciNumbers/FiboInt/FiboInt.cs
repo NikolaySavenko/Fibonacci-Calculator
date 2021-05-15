@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using FibonacciNumbers.Series;
 
 namespace FibonacciNumbers.FiboInt
 {
