@@ -14,5 +14,10 @@ namespace FibonacciNumbers.FiboInt
 			}
 			return result;
 		}
+
+		public static explicit operator ulong(FiboInt fInt)
+		{
+			return Convert.ToUInt64((uint)fInt);
+		}
 	}
 }
