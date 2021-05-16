@@ -4,38 +4,47 @@ using System.Text;
 
 namespace FibonacciNumbers.Series
 {
-	public class FibonacciSeries
+	public struct FibonacciSeries
 	{
-		public List<UInt64> Series { get; private set; }
+		// public List<UInt64> Series { get; private set; }
 
-		public int Count { get => Series.Count; }
+		private UInt64[] seriesArray;
+
+		public int Count { get => seriesArray.Length; }
 
 		public UInt64 N {
-			get => Series[Series.Count - 1];
+			get => seriesArray[seriesArray.Length - 1];
 		}
 
-		public FibonacciSeries() : this(0) { }
-
 		public FibonacciSeries(int seed) {
-			Series = new List<UInt64>();
-			Series.Add(1);
-			Series.Add(1);
+			seriesArray = new UInt64[2];
+			seriesArray[0] = 1;
+			seriesArray[1] = 1;
 			
 			for (var i = 2; i < seed; i++) {
-				Series.Add(Series[i - 1] + Series[i - 2]);
-
+				Add(seriesArray[i - 1] + seriesArray[i - 2]);
 			}
 		}
 
 		public UInt64 this[int index] {
-			get => Series[index];
+			get => seriesArray[index];
+		}
+
+		public void Add(UInt64 value) {
+			Array.Resize<UInt64>(ref seriesArray, Count + 1);
+			seriesArray[Count - 1] = value;
 		}
 
 		public void UpTo(UInt64 number)
 		{
 			while (N < number) {
-				Series.Add(N + Series[Series.Count - 2]);
+				Add(N + seriesArray[Count - 2]);
 			}
+		}
+
+		public void Up()
+		{
+			Add(N + seriesArray[Count - 2]);
 		}
 
 		public static UInt64 GetNumber(int n) {

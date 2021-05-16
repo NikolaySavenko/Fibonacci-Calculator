@@ -7,10 +7,10 @@ namespace FibonacciNumbers.FiboInt
 	public partial struct FiboInt
 	{
 		private UInt64 number;
-		public readonly FibonacciSeries series;
+		public FibonacciSeries series;
 
 		public FiboInt(UInt64 source) {
-			series = new FibonacciSeries();
+			series = new FibonacciSeries(2);
 			number = 0;
 			series.UpTo(source);
 			for (var i = series.Count - 1; i >= 0; i--) {
