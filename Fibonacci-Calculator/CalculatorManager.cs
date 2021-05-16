@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using  Microsoft.UI.Xaml.Controls;
+
 
 namespace Fibonacci_Calculator
 {
@@ -30,6 +32,13 @@ namespace Fibonacci_Calculator
 		public object FindName(string name) {
 			Page page = (Page)((Frame)Window.Current.Content).Content;
 			return page.FindName(name);
+		}
+
+		public void ShowTip(string text)
+		{
+			TeachingTip teachingTip = (TeachingTip)FindName("infoTip");
+			teachingTip.Subtitle = text;
+			teachingTip.IsOpen = true;
 		}
 	}
 }

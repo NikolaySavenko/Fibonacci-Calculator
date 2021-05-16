@@ -4,6 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:controls="using:Fibonacci_Calculator.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource AppChromeAcrylicHostBackdropMediumLowBrush}"
@@ -16,7 +17,9 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <controls:ScheduleDisplay Grid.Row="0"/>
+        <controls:ScheduleDisplay 
+            x:Name="display"
+            Grid.Row="0"/>
         <TextBlock
             x:Name="numberBlock"
             Grid.Row="1"
@@ -24,6 +27,12 @@
             HorizontalTextAlignment="Start" VerticalAlignment="Bottom"
             FontStretch="SemiCondensed" FontSize="48" HorizontalAlignment="Right"
             />
+        <muxc:TeachingTip x:Name="infoTip"
+            Target="{x:Bind display}"
+            Title="Info"
+            Subtitle="Bad..."
+            PreferredPlacement="Bottom">
+        </muxc:TeachingTip>
         <controls:CalculatorControls Grid.Row="2"/>
     </Grid>
 </Page>
