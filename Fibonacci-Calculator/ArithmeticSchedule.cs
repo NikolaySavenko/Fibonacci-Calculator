@@ -63,7 +63,7 @@ namespace Fibonacci_Calculator
 			Elements.RemoveAt(0);
 			Elements.RemoveAt(0);
 			Elements.RemoveAt(0);
-			Elements.Add(result.ToString());
+			Elements.Add(((uint)result).ToString());
 		}
 	}
 }

@@ -13,14 +13,17 @@ namespace FibonacciNumbers.FiboInt
 			for (var i = num.series.Count; i > 0; i --) {
 				if ((num.number >> i & b.number >> i & 1) > 0)
 				{
-					num.Expand();
+					num.Expand(i);
 					num.number += Convert.ToUInt64(1 << i);
 					num.Normalize();
+					if (i >= num.series.Count - 2)
+					{
+						num.series.Up();
+					}
 				} else if ((b.number >> i & 1) > 0)
 				{
 					num.number += Convert.ToUInt64(1 << i);
 					num.Normalize();
-					num.series.UpTo((ulong)num);
 				}
 			}
 			return num;
