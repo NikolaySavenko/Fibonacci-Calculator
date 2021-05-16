@@ -26,7 +26,17 @@ namespace Fibonacci_Calculator
 
 		public void Add(string element) {
 			Elements.Add(element);
-			if (Elements.Count % 2 == 1 && Elements.Count > 2) InvokeOperator();
+			if (Elements.Count % 2 == 1 && Elements.Count > 2) {
+				try
+				{
+					InvokeOperator();
+				} 
+				catch(ArgumentException e)
+				{
+					Elements.RemoveAt(Elements.Count - 1);
+					Elements.RemoveAt(Elements.Count - 1);
+				}
+			}
 			OnScheduleUpdated(Elements);
 		}
 
@@ -45,25 +55,32 @@ namespace Fibonacci_Calculator
 			var arithmeticOperator = Elements[1];
 			var operand1 = new FiboInt(ulong.Parse(Elements[2]));
 			FiboInt result = new FiboInt();
-			switch (arithmeticOperator)
+			try
 			{
-				case "+":
-					result = operand0 + operand1;
-					break;
-				case "-":
-					result = operand0 - operand1;
-					break;
-				case "/":
-					result = operand0 / operand1;
-					break;
-				case "*":
-					result = operand0 * operand1;
-					break;
+				switch (arithmeticOperator)
+				{
+					case "+":
+						result = operand0 + operand1;
+						break;
+					case "-":
+						result = operand0 - operand1;
+						break;
+					case "/":
+						result = operand0 / operand1;
+						break;
+					case "*":
+						result = operand0 * operand1;
+						break;
+				}
+				Elements.RemoveAt(0);
+				Elements.RemoveAt(0);
+				Elements.RemoveAt(0);
+				Elements.Add(((uint)result).ToString());
+			} catch(ArgumentException e)
+			{
+				CalculatorManager.Manager.ShowTip(e.Message);
+				throw e;
 			}
-			Elements.RemoveAt(0);
-			Elements.RemoveAt(0);
-			Elements.RemoveAt(0);
-			Elements.Add(((uint)result).ToString());
 		}
 	}
 }
