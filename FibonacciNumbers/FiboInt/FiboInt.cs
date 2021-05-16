@@ -22,17 +22,41 @@ namespace FibonacciNumbers.FiboInt
 		}
 
 		private void Normalize() {
-			for (var i = series.Count - 1; i > 0; i--)
+			var dirty = true;
+			while (dirty)
 			{
-				if ((GetBit(i) & GetBit(i - 1)) > 0) {
-					number -= Convert.ToUInt64(3 << (i - 1));
-					number += Convert.ToUInt64(1 << (i + 1));
+				dirty = false;
+				for (var i = series.Count - 1; i > 0; i--)
+				{
+					if ((GetBit(i) & GetBit(i - 1)) > 0)
+					{
+						dirty = true;
+						number -= Convert.ToUInt64(3 << (i - 1));
+						number += Convert.ToUInt64(1 << (i + 1));
+					}
+					if (number % 2 > 0)
+					{
+						number += 1;
+						dirty = true;
+					}
 				}
 			}
+				
 		}
 
 		private void Expand() {
 			number = (number >> 2) + (number >> 1);
+		}
+
+		private void Expand(int i)
+		{
+			number -= Convert.ToUInt64(1 << i);
+			number += Convert.ToUInt64(1 << (i - 1));
+			if ((number & Convert.ToUInt64(1 << (i - 2))) > 0)
+			{
+				Expand(i - 2);
+			}
+			number += Convert.ToUInt64(1 << (i - 2));
 		}
 
 		public static ulong Expand(ulong number)
@@ -48,14 +72,27 @@ namespace FibonacciNumbers.FiboInt
 		public static ulong Normalize(ulong binary)// DANGER !!! ITS A BINARY
 		{
 			var series = new FibonacciSeries(Convert.ToInt32(binary));
-			for (var i = series.Count - 1; i > 0; i--)
+			var dirty = true;
+			while (dirty)
 			{
-				if ((GetBit(binary, i) & GetBit(binary, i - 1)) > 0)
+				dirty = false;
+				for (var i = series.Count - 1; i > 0; i--)
 				{
-					binary -= Convert.ToUInt64(3 << (i - 1));
-					binary += Convert.ToUInt64(1 << i + 1);
+					if ((GetBit(binary, i) & GetBit(binary, i - 1)) > 0)
+					{
+						dirty = true;
+						binary -= Convert.ToUInt64(3 << (i - 1));
+						binary += Convert.ToUInt64(1 << i + 1);
+						
+					}
+				}
+				if (binary % 2 > 0)
+				{
+					binary += 1;
+					dirty = true;
 				}
 			}
+			
 			return binary;
 		}
 
