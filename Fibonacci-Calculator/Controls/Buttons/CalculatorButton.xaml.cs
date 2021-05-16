@@ -44,6 +44,9 @@ namespace Fibonacci_Calculator.Controls.Buttons
 					numberBlock.Text = fInt.ToString();
 					break;
 				case "CE":
+					numberBlock.Text = "0";
+					break;
+				case "C":
 					CalculatorManager.Manager.Schedule.Clear();
 					CalculatorManager.Manager.Schedule.Display();
 					numberBlock.Text = String.Empty;
