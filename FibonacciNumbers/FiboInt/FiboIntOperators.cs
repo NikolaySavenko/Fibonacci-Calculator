@@ -31,7 +31,24 @@ namespace FibonacciNumbers.FiboInt
 
 		public static FiboInt operator -(FiboInt a, FiboInt b)
 		{
-			return new FiboInt();
+			if (a.number < b.number)
+			{
+				throw new ArgumentException("a should be bigger than b");
+			}
+			var num = a;
+			for (var i = num.series.Count; i > 0; i--)
+			{
+				if ((b.number >> i & 1) > 0)
+				{
+					if ((num.number >> i & 1) == 0)
+					{
+						num.Expand();
+					}
+					num.number -= Convert.ToUInt64(1 << i);
+					num.Normalize();
+				}
+			}
+			return num;
 		}
 
 		public static FiboInt operator *(FiboInt a, FiboInt b)
