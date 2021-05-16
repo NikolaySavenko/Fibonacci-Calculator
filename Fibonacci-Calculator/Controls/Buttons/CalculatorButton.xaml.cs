@@ -32,11 +32,18 @@ namespace Fibonacci_Calculator.Controls.Buttons
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
 			var numberBlock = (TextBlock)CalculatorManager.Manager.FindName("numberBlock");
-			
-			switch (Text) {
+
+			switch (Text)
+			{
 				case "F(n)":
-					var fNum = new FibonacciSeries(int.Parse(numberBlock.Text)).N;
-					numberBlock.Text = fNum.ToString();
+					var inputNum = int.Parse(numberBlock.Text);
+					const int limit = 16;
+					if (inputNum < limit)
+					{
+						var fNum = new FibonacciSeries(inputNum).N;
+						numberBlock.Text = fNum.ToString();
+					}
+					else CalculatorManager.Manager.ShowTip($"N should be less than {limit}");
 					break;
 				case "=":
 					var num = ulong.Parse(numberBlock.Text);
