@@ -99,7 +99,5 @@ namespace FibonacciNumbers.FiboInt
 		public static ulong GetBit(ulong number, int index) {
 			return (number >> index) & 0x1;
 		}
-
-		public override string ToString() => Convert.ToString((long)number, 2);
 	}
 }

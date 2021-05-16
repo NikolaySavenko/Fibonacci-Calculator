@@ -19,5 +19,7 @@ namespace FibonacciNumbers.FiboInt
 		{
 			return Convert.ToUInt64((uint)fInt);
 		}
+
+		public override string ToString() => Convert.ToString((long)number, 2);
 	}
 }
