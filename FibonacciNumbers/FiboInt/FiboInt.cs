@@ -59,6 +59,16 @@ namespace FibonacciNumbers.FiboInt
 			number += Convert.ToUInt64(1 << (i - 2));
 		}
 
+		private void ExpandBefore(int i)
+		{
+			while ((number >> i & 1) == 0)
+			{
+				var j = i + 1;
+				while ((number >> j & 1) == 0) j++;
+				Expand(j);
+			}
+		}
+
 		public static ulong Expand(ulong number)
 		{
 			return (number >> 2) + (number >> 1);
