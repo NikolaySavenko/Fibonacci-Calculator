@@ -6,38 +6,42 @@ namespace FibonacciNumbers.Series
 {
 	public struct FibonacciSeries
 	{
-		// public List<UInt64> Series { get; private set; }
-
 		private UInt64[] seriesArray;
 
 		public int Count { get => seriesArray.Length; }
 
-		public UInt64 N {
+		public UInt64 N
+		{
 			get => seriesArray[seriesArray.Length - 1];
 		}
 
-		public FibonacciSeries(int seed) {
+		public FibonacciSeries(int seed)
+		{
 			seriesArray = new UInt64[2];
 			seriesArray[0] = 1;
 			seriesArray[1] = 1;
-			
-			for (var i = 2; i < seed; i++) {
+
+			for (var i = 2; i < seed; i++)
+			{
 				Add(seriesArray[i - 1] + seriesArray[i - 2]);
 			}
 		}
 
-		public UInt64 this[int index] {
+		public UInt64 this[int index]
+		{
 			get => seriesArray[index];
 		}
 
-		public void Add(UInt64 value) {
+		public void Add(UInt64 value)
+		{
 			Array.Resize<UInt64>(ref seriesArray, Count + 1);
 			seriesArray[Count - 1] = value;
 		}
 
 		public void UpTo(UInt64 number)
 		{
-			while (N < number) {
+			while (N < number)
+			{
 				Add(N + seriesArray[Count - 2]);
 			}
 		}
@@ -47,7 +51,8 @@ namespace FibonacciNumbers.Series
 			Add(N + seriesArray[Count - 2]);
 		}
 
-		public static UInt64 GetNumber(int n) {
+		public static UInt64 GetNumber(int n)
+		{
 			if (n < 3) return 1;
 			return GetNumber(n - 2) + GetNumber(n - 1);
 		}

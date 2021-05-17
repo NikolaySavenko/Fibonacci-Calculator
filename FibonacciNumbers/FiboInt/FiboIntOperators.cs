@@ -5,12 +5,15 @@ namespace FibonacciNumbers.FiboInt
 {
 	public partial struct FiboInt
 	{
-		public static FiboInt operator+(FiboInt a, FiboInt b) {
-			if (a.number < b.number) {
+		public static FiboInt operator +(FiboInt a, FiboInt b)
+		{
+			if (a.number < b.number)
+			{
 				return b + a;
 			}
 			var num = a;
-			for (var i = num.series.Count; i > 0; i --) {
+			for (var i = num.series.Count; i > 0; i--)
+			{
 				if ((num.number >> i & b.number >> i & 1) > 0)
 				{
 					num.Expand(i);
@@ -20,7 +23,8 @@ namespace FibonacciNumbers.FiboInt
 					{
 						num.series.Up();
 					}
-				} else if ((b.number >> i & 1) > 0)
+				}
+				else if ((b.number >> i & 1) > 0)
 				{
 					num.number += Convert.ToUInt64(1 << i);
 					num.Normalize();
