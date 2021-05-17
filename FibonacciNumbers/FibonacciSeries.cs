@@ -10,6 +10,8 @@ namespace FibonacciNumbers.Series
 
 		public int Count { get => seriesArray.Length; }
 
+		public int Seed { get => Count - 1; }
+
 		public UInt64 N
 		{
 			get => seriesArray[seriesArray.Length - 1];
@@ -29,7 +31,7 @@ namespace FibonacciNumbers.Series
 
 		public UInt64 this[int index]
 		{
-			get => seriesArray[index];
+			get => index >= 0 ? seriesArray[index] : 0;
 		}
 
 		public void Add(UInt64 value)
