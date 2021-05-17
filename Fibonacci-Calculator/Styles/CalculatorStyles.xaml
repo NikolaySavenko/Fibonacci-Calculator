@@ -14,4 +14,10 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="0"/>
     </Style>
+    <Style x:Key="ButtonArithmeticStyle" 
+          TargetType="Button"
+           BasedOn="{StaticResource ButtonRevealStyle}">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="0"/>
+    </Style>
 </ResourceDictionary>

@@ -12,6 +12,7 @@
     <Grid>
         <Grid>
             <Button Content="{x:Bind Action}"
+            Style="{StaticResource ButtonArithmeticStyle}"
             VerticalAlignment="Stretch"
             HorizontalAlignment="Stretch" Click="Button_Click"
            />
