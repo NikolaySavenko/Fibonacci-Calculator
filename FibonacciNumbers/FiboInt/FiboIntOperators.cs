@@ -42,7 +42,7 @@ namespace FibonacciNumbers.FiboInt
 				{
 					if ((num.number >> i & 1) == 0)
 					{
-						num.Expand();
+						num.ExpandBefore(i);
 					}
 					num.number -= Convert.ToUInt64(1 << i);
 					num.Normalize();
