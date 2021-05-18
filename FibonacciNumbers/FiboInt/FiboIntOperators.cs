@@ -61,7 +61,7 @@ namespace FibonacciNumbers.FiboInt
 
 		public static FiboInt operator /(FiboInt a, FiboInt b)
 		{
-			return new FiboInt();
+			return new FiboInt((uint)a / (uint)b);
 		}
 	}
 }
