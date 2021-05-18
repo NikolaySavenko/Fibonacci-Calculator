@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics;
 using FibonacciNumbers.Series;
 
 namespace FibonacciNumbers.FiboInt
 {
+	[DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial struct FiboInt
 	{
 		private UInt64 number;
@@ -13,7 +15,7 @@ namespace FibonacciNumbers.FiboInt
 		{
 			series = new FibonacciSeries(2);
 			number = 0;
-			series.UpTo(source);
+			series.UpTo(source + 1);
 			for (var i = series.Count - 1; i >= 0; i--)
 			{
 				var fNum = series[i];
@@ -23,30 +25,6 @@ namespace FibonacciNumbers.FiboInt
 			}
 		}
 
-		private void Normalize()
-		{
-			var dirty = true;
-			while (dirty)
-			{
-				dirty = false;
-				for (var i = series.Count - 1; i > 0; i--)
-				{
-					if ((GetBit(i) & GetBit(i - 1)) > 0)
-					{
-						dirty = true;
-						number -= Convert.ToUInt64(3 << (i - 1));
-						number += Convert.ToUInt64(1 << (i + 1));
-					}
-					if (number % 2 > 0)
-					{
-						number += 1;
-						dirty = true;
-					}
-				}
-			}
-
-		}
-
 		private void Expand()
 		{
 			number = (number >> 2) + (number >> 1);
@@ -54,13 +32,21 @@ namespace FibonacciNumbers.FiboInt
 
 		private void Expand(int i)
 		{
-			number -= Convert.ToUInt64(1 << i);
-			number += Convert.ToUInt64(1 << (i - 1));
-			if ((number & Convert.ToUInt64(1 << (i - 2))) > 0)
+			if (i > 1)
 			{
-				Expand(i - 2);
+				number -= Convert.ToUInt64(1 << i);
+				number += Convert.ToUInt64(1 << (i - 1));
+				if ((number & Convert.ToUInt64(1 << (i - 2))) > 0)
+				{
+					Expand(i - 2);
+				}
+				number += Convert.ToUInt64(1 << (i - 2));
 			}
-			number += Convert.ToUInt64(1 << (i - 2));
+			else
+			{
+				number -= 1;
+			}
+
 		}
 
 		private void ExpandBefore(int i)
@@ -78,9 +64,27 @@ namespace FibonacciNumbers.FiboInt
 			return (number >> 2) + (number >> 1);
 		}
 
-		private ulong GetBit(int index)
+		private void Normalize()
 		{
-			return (number >> index) & 0x1;
+			var dirty = true;
+			while (dirty)
+			{
+				dirty = false;
+				for (var i = series.Count - 1; i > 0; i--)
+				{
+					if ((GetBit(i) & GetBit(i - 1)) > 0)
+					{
+						dirty = true;
+						number -= Convert.ToUInt64(3 << (i - 1));
+						number += Convert.ToUInt64(1 << (i + 1));
+					}
+				}
+				if (number % 2 > 0)
+				{
+					number += 1;
+					dirty = true;
+				}
+			}
 		}
 
 		public static ulong Normalize(ulong binary)
@@ -111,6 +115,11 @@ namespace FibonacciNumbers.FiboInt
 		}
 
 		public static ulong GetBit(ulong number, int index)
+		{
+			return (number >> index) & 0x1;
+		}
+
+		private ulong GetBit(int index)
 		{
 			return (number >> index) & 0x1;
 		}
