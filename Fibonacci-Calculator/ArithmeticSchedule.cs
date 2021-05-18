@@ -20,32 +20,41 @@ namespace Fibonacci_Calculator
 		public delegate void DisplayRequiredDelegate(List<string> inlineSchedule);
 		public event DisplayRequiredDelegate OnDisplayRequired = (List<string> inlineSchedule) => { };
 
-		public ArithmeticSchedule() {
+		public ArithmeticSchedule()
+		{
 			Elements = new List<string>();
 		}
 
-		public void Add(string element) {
+		public void Add(string element)
+		{
 			Elements.Add(element);
-			if (Elements.Count % 2 == 1 && Elements.Count > 2) {
+			if (Elements.Count % 2 == 1 && Elements.Count > 2)
+			{
 				try
 				{
 					InvokeOperator();
-				} 
-				catch(ArgumentException e)
+				}
+				catch (ArgumentException e)
 				{
 					Elements.RemoveAt(Elements.Count - 1);
 					Elements.RemoveAt(Elements.Count - 1);
 				}
 			}
+			if (Elements.Count > 0 && IsOperator(Elements[0]))
+			{
+				Elements.RemoveAt(0);
+			}
 			OnScheduleUpdated(Elements);
 		}
 
-		public void Clear() {
+		public void Clear()
+		{
 			Elements = new List<string>();
 			OnScheduleCleared();
 		}
 
-		public void Display() {
+		public void Display()
+		{
 			OnDisplayRequired(Elements);
 		}
 
@@ -76,7 +85,8 @@ namespace Fibonacci_Calculator
 				Elements.RemoveAt(0);
 				Elements.RemoveAt(0);
 				Elements.Add(((uint)result).ToString());
-			} catch(Exception e)
+			}
+			catch (Exception e)
 			{
 				CalculatorManager.Manager.ShowTip(e.Message);
 				Elements.RemoveAt(0);
@@ -84,5 +94,7 @@ namespace Fibonacci_Calculator
 				Elements.RemoveAt(0);
 			}
 		}
+
+		private bool IsOperator(string operand) => operand == "+" || operand == "-" || operand == "/" || operand == "*";
 	}
 }
