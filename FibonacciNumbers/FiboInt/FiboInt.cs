@@ -30,6 +30,11 @@ namespace FibonacciNumbers.FiboInt
 			number = (number >> 2) + (number >> 1);
 		}
 
+		public static ulong Expand(ulong number)
+		{
+			return (number >> 2) + (number >> 1);
+		}
+
 		private void Expand(int i)
 		{
 			if (i > 1)
@@ -57,11 +62,6 @@ namespace FibonacciNumbers.FiboInt
 				while ((number >> j & 1) == 0) j++;
 				Expand(j);
 			}
-		}
-
-		public static ulong Expand(ulong number)
-		{
-			return (number >> 2) + (number >> 1);
 		}
 
 		private void Normalize()

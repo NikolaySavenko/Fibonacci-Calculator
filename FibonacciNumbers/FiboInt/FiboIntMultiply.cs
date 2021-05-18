@@ -6,7 +6,8 @@ namespace FibonacciNumbers.FiboInt
 {
 	public partial struct FiboInt
 	{
-		public static FiboInt SimpleBinaryMultiply(FiboInt a, FiboInt b) {
+		public static FiboInt SimpleBinaryMultiply(FiboInt a, FiboInt b)
+		{
 			if (a.number == 2) return b;
 			if (b.number == 2) return a;
 
