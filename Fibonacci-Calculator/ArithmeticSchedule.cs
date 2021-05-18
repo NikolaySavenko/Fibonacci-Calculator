@@ -76,10 +76,12 @@ namespace Fibonacci_Calculator
 				Elements.RemoveAt(0);
 				Elements.RemoveAt(0);
 				Elements.Add(((uint)result).ToString());
-			} catch(ArgumentException e)
+			} catch(Exception e)
 			{
 				CalculatorManager.Manager.ShowTip(e.Message);
-				throw e;
+				Elements.RemoveAt(0);
+				Elements.RemoveAt(0);
+				Elements.RemoveAt(0);
 			}
 		}
 	}
