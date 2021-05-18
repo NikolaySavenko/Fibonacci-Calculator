@@ -23,6 +23,7 @@ namespace Fibonacci_Calculator.Controls.Buttons
 	public sealed partial class CalculatorButton : UserControl
 	{
 		public string Text { get; set; }
+		public bool Enabled { get; set; } = true;
 
 		public CalculatorButton()
 		{

@@ -14,7 +14,7 @@
         <Button Content="{x:Bind Text}"
             Style="{StaticResource ButtonCalcStyle}"
             VerticalAlignment="Stretch"
-            HorizontalAlignment="Stretch" Click="Button_Click"
+            HorizontalAlignment="Stretch" Click="Button_Click" IsEnabled="{x:Bind Enabled}" 
            />
     </Grid>
 </UserControl>
