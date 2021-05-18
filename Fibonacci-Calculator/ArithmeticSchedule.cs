@@ -60,12 +60,12 @@ namespace Fibonacci_Calculator
 
 		private void InvokeOperator()
 		{
-			var operand0 = new FiboInt(ulong.Parse(Elements[0]));
-			var arithmeticOperator = Elements[1];
-			var operand1 = new FiboInt(ulong.Parse(Elements[2]));
-			FiboInt result = new FiboInt();
 			try
 			{
+				var operand0 = new FiboInt(ulong.Parse(Elements[0]));
+				var arithmeticOperator = Elements[1];
+				var operand1 = new FiboInt(ulong.Parse(Elements[2]));
+				FiboInt result = new FiboInt();
 				switch (arithmeticOperator)
 				{
 					case "+":
@@ -89,9 +89,7 @@ namespace Fibonacci_Calculator
 			catch (Exception e)
 			{
 				CalculatorManager.Manager.ShowTip(e.Message);
-				Elements.RemoveAt(0);
-				Elements.RemoveAt(0);
-				Elements.RemoveAt(0);
+				Elements.Clear();
 			}
 		}
 

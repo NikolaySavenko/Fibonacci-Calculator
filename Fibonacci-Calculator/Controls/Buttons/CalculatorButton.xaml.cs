@@ -38,7 +38,7 @@ namespace Fibonacci_Calculator.Controls.Buttons
 			{
 				case "F(n)":
 					var inputNum = int.Parse(numberBlock.Text);
-					const int limit = 64;
+					const int limit = 32;
 					if (inputNum < limit)
 					{
 						var fNum = new FibonacciSeries(inputNum).N;
