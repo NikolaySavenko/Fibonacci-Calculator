@@ -37,7 +37,7 @@ namespace Fibonacci_Calculator.Controls.Buttons
 			{
 				case "F(n)":
 					var inputNum = int.Parse(numberBlock.Text);
-					const int limit = 16;
+					const int limit = 64;
 					if (inputNum < limit)
 					{
 						var fNum = new FibonacciSeries(inputNum).N;
@@ -46,9 +46,9 @@ namespace Fibonacci_Calculator.Controls.Buttons
 					else CalculatorManager.Manager.ShowTip($"N should be less than {limit}");
 					break;
 				case "=":
-					var num = ulong.Parse(numberBlock.Text);
-					var fInt = new FiboInt(num);
-					numberBlock.Text = fInt.ToString();
+					CalculatorManager.Manager.Schedule.Add(numberBlock.Text);
+					CalculatorManager.Manager.Schedule.Display();
+					numberBlock.Text = String.Empty;
 					break;
 				case "CE":
 					numberBlock.Text = "0";
