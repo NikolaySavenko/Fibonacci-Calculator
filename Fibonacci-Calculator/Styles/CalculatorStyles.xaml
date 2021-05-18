@@ -7,17 +7,24 @@
            BasedOn="{StaticResource ButtonRevealStyle}">
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="{StaticResource PivotHeaderItemThemeFontWeight}"/>
+        
     </Style>
     <Style x:Key="ButtonNumPadStyle" 
           TargetType="Button"
            BasedOn="{StaticResource ButtonRevealStyle}">
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="{StaticResource PivotHeaderItemThemeFontWeight}"/>
     </Style>
     <Style x:Key="ButtonArithmeticStyle" 
           TargetType="Button"
            BasedOn="{StaticResource ButtonRevealStyle}">
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontFamily" Value="{StaticResource CalculatorFontFamily}"/>
+        <Setter Property="FontSize" Value="24"/>
     </Style>
 </ResourceDictionary>
