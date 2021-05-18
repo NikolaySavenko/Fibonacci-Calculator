@@ -28,6 +28,10 @@ namespace FibonacciNumbers.FiboInt
 				{
 					num.number += Convert.ToUInt64(1 << i);
 					num.Normalize();
+					if (i >= num.series.Count - 2)
+					{
+						num.series.Up();
+					}
 				}
 			}
 			return num;
@@ -53,11 +57,6 @@ namespace FibonacciNumbers.FiboInt
 				}
 			}
 			return num;
-		}
-
-		public static FiboInt operator *(FiboInt a, FiboInt b)
-		{
-			return new FiboInt();
 		}
 
 		public static FiboInt operator /(FiboInt a, FiboInt b)
