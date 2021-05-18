@@ -17,9 +17,9 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <buttons:ArithmeticButton Grid.Row="0" Action="&#xE94A;"/>
-        <buttons:ArithmeticButton Grid.Row="1" Action="&#xE947;"/>
-        <buttons:ArithmeticButton Grid.Row="2" Action="&#xE949;"/>
-        <buttons:ArithmeticButton Grid.Row="3" Action="&#xE948;"/>
+        <buttons:ArithmeticButton Grid.Row="0" ActionSymbol="&#xE94A;" Action="/"/>
+        <buttons:ArithmeticButton Grid.Row="1" ActionSymbol="&#xE947;" Action="*"/>
+        <buttons:ArithmeticButton Grid.Row="2" ActionSymbol="&#xE949;" Action="-"/>
+        <buttons:ArithmeticButton Grid.Row="3" ActionSymbol="&#xE948;" Action="+"/>
     </Grid>
 </UserControl>

@@ -20,6 +20,7 @@ namespace Fibonacci_Calculator.Controls.Buttons
 	public sealed partial class ArithmeticButton : UserControl
 	{
 		public string Action { get; set; }
+		public string ActionSymbol { get; set; }
 
 		public ArithmeticButton()
 		{
@@ -32,6 +33,7 @@ namespace Fibonacci_Calculator.Controls.Buttons
 			TextBlock numberBlock = (TextBlock)page.FindName("numberBlock");
 			if (numberBlock.Text.Length > 0)
 			{
+
 				CalculatorManager.Manager.Schedule.Add(numberBlock.Text);
 				CalculatorManager.Manager.Schedule.Add(Action);
 				CalculatorManager.Manager.Schedule.Display();
