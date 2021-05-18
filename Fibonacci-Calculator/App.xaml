@@ -19,6 +19,8 @@
                                   FallbackColor="{ThemeResource SystemChromeMediumColor}"
                                   TintColor="{ThemeResource SystemChromeLowColor}"
                                   TintOpacity="0.7"/>
+            <FontFamily x:Key="CalculatorFontFamily">ms-appx:///Assets/CalcMDL2.ttf#Calculator MDL2 Assets</FontFamily>
+            <FontWeight x:Key="PivotHeaderItemThemeFontWeight">SemiBold</FontWeight>
         </ResourceDictionary>
     </Application.Resources>
     
