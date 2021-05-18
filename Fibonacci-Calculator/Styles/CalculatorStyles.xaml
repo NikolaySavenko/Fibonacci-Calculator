@@ -27,4 +27,14 @@
         <Setter Property="FontFamily" Value="{StaticResource CalculatorFontFamily}"/>
         <Setter Property="FontSize" Value="24"/>
     </Style>
+    <Style x:Key="BinDisplayStyle" 
+          TargetType="TextBlock">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+    <Style x:Key="DecDisplayStyle" 
+          TargetType="TextBlock">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
 </ResourceDictionary>
