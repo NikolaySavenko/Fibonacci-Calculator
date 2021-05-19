@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using FibonacciNumbers.Series;
+﻿using FibonacciNumbers.Series;
 
 namespace FibonacciNumbers.FiboInt
 {

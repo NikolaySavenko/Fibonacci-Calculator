@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-
-namespace FibonacciNumbers.FiboInt
+﻿namespace FibonacciNumbers.FiboInt
 {
 	public partial struct FiboInt
 	{
