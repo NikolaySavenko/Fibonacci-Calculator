@@ -1,9 +1,6 @@
-﻿using System;
+﻿using FibonacciNumbers.FiboInt;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FibonacciNumbers.FiboInt;
 
 namespace Fibonacci_Calculator
 {
