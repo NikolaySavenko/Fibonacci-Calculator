@@ -9,7 +9,7 @@
   <Identity
     Name="83dff8c4-1b84-4a4f-982b-d3a5a1316703"
     Publisher="CN=NikolaySavenko"
-    Version="1.1.0.0" />
+    Version="1.2.0.0" />
 
   <Properties>
     <DisplayName>Fibonacci Calculator</DisplayName>
