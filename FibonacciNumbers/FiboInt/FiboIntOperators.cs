@@ -60,6 +60,11 @@ namespace FibonacciNumbers.FiboInt
 
 		public static FiboInt operator /(FiboInt a, FiboInt b)
 		{
+			if (a.number == 0 || b.number == 0)
+			{
+				throw new DivideByZeroException();
+			}
+			// We have no algorithm which will be more efficient than this... 
 			return new FiboInt((uint)a / (uint)b);
 		}
 	}
